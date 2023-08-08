@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>withgoods_리뉴얼</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+
+
+        $(function () {
+
+            AOS.init();
+
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+            let menuOpen = $('.inner .menu_open')
+            let menuClose = $('.inner nav .menu_close')
+            let depthOpen = $('.inner nav .depth01 > a')
+            menuOpen.click(function () {
+
+                $('nav').slideToggle(1000);
+
+            });
+
+            $('header .inner .search').click(function(){
+                $('.search_box').slideToggle(500);
+            })
+
+            depthOpen.click(function () {
+                $(this).next().slideToggle();
+                $(this).toggleClass('on');
+            });
+
+            let textTab = $('.tab .inner .text li')
+            let tabList = $('.tab .inner .list')
+
+            textTab.click(function () {
+                textTab.removeClass('on');
+                $(this).addClass('on');
+
+                tabList.removeClass('on');
+                tabList.eq($(this).index()).addClass('on');
+
+            });
+
+
+            let leftImage = $('.left_image img');
+            let smallImage = $('.right .bottom div');
+
+            smallImage.click(function () {
+
+                let leftImageChange = $(this).find('img').attr('src');
+
+                let topText = $(this).find('div').text();
+
+                leftImage.attr('src', leftImageChange);
+
+                $('.right .top div').removeClass('on');
+                $('.right .top div').eq($(this).index()).addClass('on')
+
+                smallImage.removeClass('on');
+                smallImage.eq($(this).index()).addClass('on');
+
+            });
+
+
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        <header>
+            <div class="inner">
+
+                <h1><img src="img/logo.png" alt="위드굿즈 로고"></h1>
+
+                <div class="menu_open">
+                    <!-- <span>메뉴열기</span> -->
+                    <a href="#" class="menu example3"><span></span></a>
+                </div> <!-- .menu_open -->
+
+                <div class="search">
+                    <img src="img/pngwing.com.png" alt="검색하기">
+                </div> <!-- .search end -->
+
+                <div class="search_box">
+                    <input type="text" placeholder="정보를 입력해주세요.">
+                    <button>검색</button>
+                </div> <!-- .search_box end -->
+    
+
+                <nav>
+
+                    <ul class="gnb">
+                        <li class="depth01">
+                            <a href="#">굿즈샵</a>
+                            <ul class="depth02">
+                                <li><a href="#">메뉴1</a></li>
+                                <li><a href="#">메뉴2</a></li>
+                                <li><a href="#">메뉴3</a></li>
+                                <li><a href="#">메뉴4</a></li>
+                                <li><a href="#">메뉴5</a></li>
+                            </ul> <!-- .depth02 end -->
+                        </li> <!-- .depth01 end -->
+
+                        <li class="depth01">
+                            <a href="#">굿즈제작</a>
+                            <ul class="depth02">
+                                <li><a href="#">메뉴1</a></li>
+                                <li><a href="#">메뉴2</a></li>
+                                <li><a href="#">메뉴3</a></li>
+                            </ul> <!-- .depth02 end -->
+                        </li>
+
+                        <li class="depth01">
+                            <a href="#">단체주문</a>
+                            <ul class="depth02">
+                                <li><a href="#">메뉴1</a></li>
+                                <li><a href="#">메뉴2</a></li>
+                                <li><a href="#">메뉴3</a></li>
+                            </ul> <!-- .depth02 end -->
+                        </li>
+
+                        <li class="depth01"><a href="#">굿즈컨설팅</a></li>
+
+                        <li class="depth01"><a href="#">리뷰</a></li>
+
+                    </ul> <!-- .gnb end -->
+
+                </nav>
+
+            </div> <!-- .inner end -->
+
+        </header>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><span>Slide 1</span></div>
+                <div class="swiper-slide"><span>Slide 2</span></div>
+                <div class="swiper-slide"><span>Slide 3</span></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            
+        </div> <!-- .swiper end -->
+
+
+        <section class="tab">
+
+            <div class="inner">
+
+                <ul class="text">
+                    <li class="on">마음을 적시는 빗소리</li>
+                    <li>싱그러운 여름보내기</li>
+                    <li>시원한 바다 힐링하기</li>
+                </ul>
+
+                <div class="list on">
+
+                    <div class="item">
+                        <img src="img/01_item01.jpg" alt="">
+                        <div>
+                            <span>우드 코스터 원형</span>
+                            <h4>비오는 날 개구리 패턴</h4>
+                            <p>by Josign</p>
+                            <strong>12,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/01_item02.jpg" alt="">
+                        <div>
+                            <span>치얼스 비어캔 글라스</span>
+                            <h4>내이름은 곽만춘</h4>
+                            <p>by 즈윤윤</p>
+                            <strong>17,500원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/01_item03.jpg" alt="">
+                        <div>
+                            <span>하이볼 유리컵</span>
+                            <h4>Rainy Day</h4>
+                            <p>by Ownground</p>
+                            <strong>15,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/01_item04.jpg" alt="">
+                        <div>
+                            <span>치얼스 비어캔 글라스</span>
+                            <h4>OUCH!MEOW_장마 고양이</h4>
+                            <p>by OUCH!MEOW</p>
+                            <strong>12,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/01_item05.jpg" alt="">
+                        <div>
+                            <span>하이볼 유리컵</span>
+                            <h4>추억편_ 소나기</h4>
+                            <p>by kosunggyu</p>
+                            <strong>15,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                </div> <!-- .list end / 1 -->
+
+                <div class="list">
+
+                    <div class="item">
+                        <img src="img/02_item01.jpg" alt="">
+                        <div>
+                            <span>베이직 패브릭 포스터(세로형)</span>
+                            <h4>와이키키비치리조트</h4>
+                            <p>by 씨솔</p>
+                            <strong>24,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/02_item02.jpg" alt="">
+                        <div>
+                            <span>위드 그랑 글라스</span>
+                            <h4>달콤 복숭아</h4>
+                            <p>by 피크닉밭</p>
+                            <strong>25,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/02_item03.jpg" alt="">
+                        <div>
+                            <span>파르페 고블릿 유리컵(345ml)</span>
+                            <h4>달콤 복숭아</h4>
+                            <p>by 피크닉밭</p>
+                            <strong>18,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/02_item04.jpg" alt="">
+                        <div>
+                            <span>하이볼 유리컵</span>
+                            <h4>추억편_ 소나기</h4>
+                            <p>by kosunggyu</p>
+                            <strong>15,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/02_item05.jpg" alt="">
+                        <div>
+                            <span>비어 유리컵</span>
+                            <h4>OUCH!MEOW_장마 고양이(여름)</h4>
+                            <p>by OUCH!MEOW</p>
+                            <strong>18,500원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                </div> <!-- .list end / 2 -->
+
+                <div class="list">
+
+                    <div class="item">
+                        <img src="img/03_item01.jpg" alt="">
+                        <div>
+                            <span>하이볼 유리컵</span>
+                            <h4>파도</h4>
+                            <p>by wuilo</p>
+                            <strong>15,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/03_item02.jpg" alt="">
+                        <div>
+                            <span>하이볼 유리컵</span>
+                            <h4>The wave</h4>
+                            <p>by 유하</p>
+                            <strong>15,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/03_item03.jpg" alt="">
+                        <div>
+                            <span>우드 코스터 육각</span>
+                            <h4>The wave</h4>
+                            <p>by 유하</p>
+                            <strong>12,500원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/03_item04.jpg" alt="">
+                        <div>
+                            <span>우드 코스터 원형</span>
+                            <h4>Blue Water</h4>
+                            <p>by 레온</p>
+                            <strong>12,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                    <div class="item">
+                        <img src="img/03_item05.jpg" alt="">
+                        <div>
+                            <span>하이볼 유리컵</span>
+                            <h4>수영하는 곰대리</h4>
+                            <p>by 달리</p>
+                            <strong>15,000원</strong>
+                        </div>
+                    </div> <!-- .item end -->
+
+                </div> <!-- .list end / 3 -->
+
+            </div> <!-- .inner end -->
+
+
+
+        </section> <!-- .tab end -->
+
+        <section class="cont01">
+
+            <div class="inner">
+
+                <div class="cont01_item">
+                    <div class="text" data-aos="fade-right">
+                        <h1>동물을 보호해요!</h1>
+                        <p>제 작품 속 문베어는 항상 가슴속에 반달을 품고 살며 언젠가는<br>
+                            꼭 보름달이 되고픈 꿈을 꾸는 캐릭터입니다 그 꿈을 이룰 수 있도록<br />
+                            우리함께 반달들을 모아보아요!</p>
+                        <div>
+                            <a href="#">바로가기</a>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-left">
+                        <a href="#"><img src="img/동물구하기.png" alt="동물구하기"></a>
+                    </div>
+
+                </div> <!-- .cont01_item end  -->
+
+                <div class="cont01_item2">
+
+                    <div data-aos="fade-right">
+                        <a href="#"><img src="img/오비.jpg" alt="ob라거"></a>
+                    </div>
+
+                    <div class="text" data-aos="fade-left">
+                        <h1>오비라거 마스코트<br>
+                            랄라베어와 함께하는 힐링 일상</h1>
+                        <p>1952년부터 사랑받아온 오비-라거의 랄라베어와 함께 신나게 춤춰봐요! <br>
+                            눈 번뜩이며 오늘 하루도 하하하!</p>
+                        <div>
+                            <a href="#">바로가기</a>
+                        </div>
+                    </div>
+
+                </div> <!-- .cont02_item end  -->
+
+            </div> <!-- .inner end -->
+
+        </section> <!-- .cont01 end -->
+
+        <section class="cont02">
+
+            <div class="inner">
+                <figure class="left_image">
+                    <img src="img/1.jpg" alt="리뷰1">
+                </figure> <!-- .left_image end -->
+
+                <div class="right">
+
+                    <div class="top">
+                        <div class="on">
+                            <img src="img/별5.png" alt="">
+                            <h3>배송이 빠르고 배개도 푹신하고 좋아여</h3>
+                            배송도 문제없구 굿즈도 아주좋아여
+                        </div>
+
+                        <div>
+                            <img src="img/별5.png" alt="">
+                            <h3>캭 진짜 깜찍하고 너무 귀여워요. 유리컵 사이즈도 사용하기에 딱이예요.</h3>
+                            나무인 캐릭터가 너무 귀여워서 사보았는데 이미지랑 실물 똑같고 색상조합이 이뻐요. 유리컵 튼튼해서 오래 사용할 수 있을 것 같아요. 캐릭터 진심 너무 귀엽습니다!!
+                            그리고
+                            배송도 엄청 빨라요. 주문에서 배송까지 딱 3일 걸렸어요. 튼튼한 박스안에 포장재 섬세하게 배송되어서 파손없이 잘 도착했어요. 선물용으로도 좋을 것 같아요. 나무인의
+                            다른
+                            디자인도 기대됩다^^
+                        </div>
+
+                        <div>
+                            <img src="img/별5.png" alt="">
+                            <h3>선명합니다</h3>
+                            색이 쨍하게 나오길 기대했는데 색상 굉장히 선명합니다. 감사합니다.
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+                        <div class="on">
+                            <img src="img/1.jpg" alt="리뷰1">
+                        </div>
+
+                        <div>
+                            <img src="img/2.jpg" alt="리뷰2">
+                        </div>
+
+                        <div>
+                            <img src="img/3.png" alt="리뷰3">
+
+                        </div>
+                    </div> <!-- .bottom end -->
+                </div><!-- .right end -->
+
+            </div> <!-- .inner end -->
+
+        </section> <!-- .cont02 end -->
+
+        <div class="event">
+
+            <img src="img/event_bn.jpg" alt="이벤트">
+
+            <div class="inner">
+                <div>
+                    <h2>단 1개라도 괜찮아요 <br>
+                        위드굿즈가 만들어드려요</h2>
+                    <span>굿즈제작하러 가기</span>
+                </div>
+            </div>
+
+        </div> <!-- .event -->
+
+        <footer>
+
+            <div class="inner">
+                <ul>
+                    <li>
+                        <a href="#"><span>(주) 공공공간</span> 사업자소개</a>
+                    </li>
+
+                    <li><a href="#">서비스소개</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">자주묻는질문</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">저작권대리중개업 표준업무규정</a></li>
+                    <li><a href="#">개인정보처리방침</a></li> 
+                    <li><a href="#">메이커스페이스</a></li>
+                    <li><a href="#">문의하기</a></li>
+
+                </ul>
+            </div> <!-- .inner -->
+
+        </footer>
+
+
+    </div> <!-- #wrap end -->
+
+
+</body>
+
+</html>
